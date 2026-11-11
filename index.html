@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Менюшка, не психуй!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game">
+    <header class="game-header">
+      <h1>МЕНЮШКА, НЕ ПСИХУЙ! 🤖</h1>
+
+      <div class="stats">
+        <span>⭐ Очки: <b id="score">0</b>/100</span>
+        <span>❤️ Жизни: <b id="lives">3</b></span>
+        <span>⏱️ Время: <b id="timer">60</b></span>
+      </div>
+    </header>
+
+    <div id="game-field">
+      <div id="message">Шеф, кухня ждёт!</div>
+      <img id="menyushka" alt="Менюшка">
+
+      <div id="game-overlay" class="hidden">
+        <h2 id="result-title"></h2>
+        <p id="result-text"></p>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="left" aria-label="Влево">◀</button>
+      <button id="start">НАЧАТЬ ИГРУ</button>
+      <button id="right" aria-label="Вправо">▶</button>
+    </div>
+
+    <p class="instructions">
+      🧀 Продукты: +5 очков · 🗑️ Мусор: −1 жизнь
+      <br>
+      Собери 100 очков за 60 секунд!
+      <br>
+      Управление: ← → или кнопки
+    </p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
