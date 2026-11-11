@@ -1,0 +1,193 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #111018;
+  font-family: Arial, sans-serif;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game {
+  width: min(100%, 1100px);
+  padding: 12px;
+  text-align: center;
+}
+
+.game-header {
+  background: #24202e;
+  border: 3px solid #ffbd48;
+  border-radius: 18px 18px 0 0;
+  padding: 12px;
+}
+
+h1 {
+  margin: 4px 0 12px;
+  color: #ffcf62;
+  font-size: clamp(19px, 3vw, 34px);
+  text-shadow: 2px 3px #9d303a;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: clamp(13px, 2vw, 19px);
+}
+
+#game-field {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #ffbd48;
+  border-top: none;
+  background: #332b38
+    url("https://raw.githubusercontent.com/parklera27-art/menyushka-game/main/%D0%BA%D1%83%D1%85%D0%BD%D1%8F.png")
+    center / cover no-repeat;
+}
+
+#menyushka {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 19%;
+  height: 48%;
+  object-fit: contain;
+  transform: translateX(-50%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+#message {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 7;
+  padding: 9px 16px;
+  border-radius: 20px;
+  background: rgba(30, 22, 36, .92);
+  color: #ffe2a0;
+  font-weight: bold;
+  font-size: clamp(12px, 2vw, 18px);
+  max-width: 90%;
+}
+
+.falling-item {
+  position: absolute;
+  width: 9%;
+  height: auto;
+  object-fit: contain;
+  z-index: 4;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 4px 5px rgba(0,0,0,.45));
+}
+
+.falling-item.caught {
+  z-index: 5;
+  transition:
+    left .22s ease-in,
+    top .22s ease-in,
+    transform .22s ease-in,
+    opacity .22s ease-in;
+  opacity: 0;
+  filter: none;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 14px;
+}
+
+button {
+  background: #ffbd48;
+  border: 3px solid #fff0bb;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  touch-action: none;
+}
+
+button:active {
+  transform: scale(.95);
+}
+
+#start {
+  background: #f35c59;
+  color: white;
+}
+
+.instructions {
+  color: #d9cbd5;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+#game-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 12, 24, .55);
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 15%;
+  pointer-events: none;
+}
+
+#game-overlay.hidden {
+  display: none;
+}
+
+#result-title {
+  color: #ffcf62;
+  font-size: clamp(22px, 4vw, 40px);
+  text-shadow: 2px 3px #7a2531;
+  margin: 0;
+}
+
+#result-text {
+  font-size: clamp(14px, 2vw, 22px);
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .game {
+    padding: 6px;
+  }
+
+  #game-field {
+    aspect-ratio: 4 / 5;
+  }
+
+  #menyushka {
+    width: 32%;
+    height: 32%;
+  }
+
+  .falling-item {
+    width: 13%;
+  }
+
+  button {
+    padding: 12px 16px;
+  }
+}
+
+
+
